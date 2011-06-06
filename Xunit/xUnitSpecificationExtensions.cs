@@ -4,41 +4,40 @@ using System.Collections.Generic;
 using Xunit;
 
 
-public static class XunitSpecificationExtensions
+public static class xUnitSpecificationExtensions
 {
+    public static void ShouldBeFalse(this bool condition)
+    {
+        ShouldBeFalse(condition, string.Empty);
+    }
     public static void ShouldBeFalse(this bool condition, string message)
     {
         Assert.False(condition, message);
     }
 
-    public static void ShouldBeFalse(this bool condition)
-    {
-        ShouldBeFalse(condition, string.Empty);
-    }
 
 
-
-    public static void ShouldBeTrue(this bool condition, string message)
-    {
-        Assert.True(condition, message);
-    }
 
     public static void ShouldBeTrue(this bool condition)
     {
         ShouldBeTrue(condition, string.Empty);
+    }
+    public static void ShouldBeTrue(this bool condition, string message)
+    {
+        Assert.True(condition, message);
     }
 
 
 
     public static T ShouldEqual<T>(this T actual, T expected)
     {
-        Assert.Equal<T>(expected, actual);
+        Assert.Equal(expected, actual);
         return actual;
     }
 
     public static T ShouldEqual<T>(this T actual, T expected, IEqualityComparer<T> comparer)
     {
-        Assert.Equal<T>(expected, actual, comparer);
+        Assert.Equal(expected, actual, comparer);
         return actual;
     }
 
@@ -52,7 +51,7 @@ public static class XunitSpecificationExtensions
 
     public static T ShouldNotEqual<T>(this T actual, T expected)
     {
-        Assert.NotEqual<T>(expected, actual);
+        Assert.NotEqual(expected, actual);
         return actual;
     }
 
@@ -64,7 +63,7 @@ public static class XunitSpecificationExtensions
 
     public static T ShouldNotEqual<T>(this T actual, T expected, IEqualityComparer<T> comparer)
     {
-        Assert.NotEqual<T>(expected, actual, comparer);
+        Assert.NotEqual(expected, actual, comparer);
         return actual;
     }
 
@@ -150,13 +149,13 @@ public static class XunitSpecificationExtensions
 
     public static IEnumerable<T> ShouldContain<T>(this IEnumerable<T> collection, T expected)
     {
-        Assert.Contains<T>(expected, collection);
+        Assert.Contains(expected, collection);
         return collection;
     }
 
     public static IEnumerable<T> ShouldContain<T>(this IEnumerable<T> collection, T expected, IEqualityComparer<T> equalityComparer)
     {
-        Assert.Contains<T>(expected, collection, equalityComparer);
+        Assert.Contains(expected, collection, equalityComparer);
         return collection;
     }
 
@@ -183,13 +182,13 @@ public static class XunitSpecificationExtensions
 
     public static IEnumerable<T> ShouldNotContain<T>(this IEnumerable<T> collection, T expected)
     {
-        Assert.DoesNotContain<T>(expected, collection);
+        Assert.DoesNotContain(expected, collection);
         return collection;
     }
 
     public static IEnumerable<T> ShouldNotContain<T>(this IEnumerable<T> collection, T expected, IEqualityComparer<T> equalityComparer)
     {
-        Assert.DoesNotContain<T>(expected, collection, equalityComparer);
+        Assert.DoesNotContain(expected, collection, equalityComparer);
         return collection;
     }
 
@@ -209,7 +208,7 @@ public static class XunitSpecificationExtensions
 
     public static IEnumerable<T> Single<T>(this IEnumerable<T> collection)
     {
-        Assert.Single<T>(collection);
+        Assert.Single(collection);
         return collection;
     }
 
@@ -217,13 +216,13 @@ public static class XunitSpecificationExtensions
 
     public static T IsInRange<T>(this T actual, T low, T high) where T : IComparable
     {
-        Assert.InRange<T>(actual, low, high);
+        Assert.InRange(actual, low, high);
         return actual;
     }
 
     public static T IsInRange<T>(this T actual, T low, T high, IComparer<T> comparer)
     {
-        Assert.InRange<T>(actual, low, high, comparer);
+        Assert.InRange(actual, low, high, comparer);
         return actual;
     }
 
@@ -231,13 +230,13 @@ public static class XunitSpecificationExtensions
 
     public static T IsNotInRange<T>(this T actual, T low, T high) where T : IComparable
     {
-        Assert.NotInRange<T>(actual, low, high);
+        Assert.NotInRange(actual, low, high);
         return actual;
     }
 
     public static T IsNotInRange<T>(this T actual, T low, T high, IComparer<T> comparer)
     {
-        Assert.NotInRange<T>(actual, low, high, comparer);
+        Assert.NotInRange(actual, low, high, comparer);
         return actual;
     }
 

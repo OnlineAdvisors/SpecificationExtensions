@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>SpecificationExtensions.Xunit</id>
+    <version>0.0</version>
+    <title />
+    <authors>Jason Jarrett</authors>
+    <owners />
+    <projectUrl>https://github.com/OnlineAdvisors/SpecificationExtensions</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>My package description.</description>
+    <summary />
+    <tags>xunit BDD Specification Extensions</tags>
+  </metadata>
+</package>
