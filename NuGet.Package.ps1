@@ -30,10 +30,19 @@ function Increment-Version($version){
     [System.String]::Join(".", $parts)
 }
 
-$packageIds = @( @{} )
+$packageIds = @(
+	@{},
+	@{}
+)
 $packageIds[0].Name = "Xunit"
 $packageIds[0].PackageId = "SpecificationExtensions.Xunit"
 $packageIds[0].SpecFile = (get-item ".\Xunit\xUnitSpecificationExtensions.cs")
+
+$packageIds[1].Name = "NUnit"
+$packageIds[1].PackageId = "SpecificationExtensions.NUnit"
+$packageIds[1].SpecFile = (get-item ".\NUnit\NUnitSpecificationExtensions.cs")
+
+
 
 $baseNuSpecFile = (get-item .\SpecificationExtensions.Base.nuspec)
 
@@ -55,6 +64,7 @@ pushd $buildRoot
 			$nuspec = [xml](cat $baseNuSpecFile)
 			$nuspec.package.metadata.version = $package.NewVersion
 			$nuspec.package.metadata.id = $package.PackageId
+			$nuspec.package.metadata.tags = ($nuspec.package.metadata.tags + " " + $package.Name)
 			$nuspec.package.metadata.description = "A set of C# specification extension methods that provide an easy to use 'testObject.Should***()' syntax for use with $($package.Name)"
 			$nuspec.Save((get-item $nuspecFile))
 

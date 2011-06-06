@@ -10,6 +10,6 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>My package description.</description>
     <summary />
-    <tags>xunit BDD Specification Extensions</tags>
+    <tags>BDD Specification Extensions</tags>
   </metadata>
 </package>
