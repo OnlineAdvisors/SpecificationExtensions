@@ -206,14 +206,6 @@ public static class xUnitSpecificationExtensions
 
 
 
-    public static IEnumerable<T> Single<T>(this IEnumerable<T> collection)
-    {
-        Assert.Single(collection);
-        return collection;
-    }
-
-
-
     public static T IsInRange<T>(this T actual, T low, T high) where T : IComparable
     {
         Assert.InRange(actual, low, high);
