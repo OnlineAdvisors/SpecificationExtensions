@@ -93,15 +93,27 @@ public static class NUnitSpecificationExtensions
         CollectionAssert.DoesNotContain(collection, expected);
     }
 
-    public static IComparable ShouldBeGreaterThan(this IComparable arg1, IComparable arg2)
+    public static IComparable ShouldBeGreaterThan(this IComparable arg1, IComparable arg2, string message = "")
     {
-        Assert.Greater(arg1, arg2);
+        Assert.Greater(arg1, arg2, message);
         return arg2;
     }
 
-    public static IComparable ShouldBeLessThan(this IComparable arg1, IComparable arg2)
+    public static IComparable ShouldBeLessThan(this IComparable arg1, IComparable arg2, string message = "")
     {
-        Assert.Less(arg1, arg2);
+        Assert.Less(arg1, arg2, message);
+        return arg2;
+    }
+
+    public static IComparable ShouldBeGreaterOrEqualThan(this IComparable arg1, IComparable arg2, string message = "")
+    {
+        Assert.GreaterOrEqual(arg1, arg2, message);
+        return arg2;
+    }
+
+    public static IComparable ShouldBeLessOrEqualThan(this IComparable arg1, IComparable arg2, string message = "")
+    {
+        Assert.LessOrEqual(arg1, arg2, message);
         return arg2;
     }
 
